@@ -13,8 +13,12 @@ export const TodoForm = () => {
   const [task, setTask] = React.useState(initialTask);
 
   const handleAddTodo = () => {
-   setTodos((prev) => ([...prev, task]));
+    if (task.length > 0) {
+    setTodos((prev) => ([...prev, task]));
    setTask(initialTask);
+  } else {
+    alert('Enter some task');
+  }
   };
 
   const handleKeyUp = (e) => {
